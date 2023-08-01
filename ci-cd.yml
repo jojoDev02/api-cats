@@ -39,4 +39,4 @@ jobs:
           
       - name: Apply Kubernetes Manifest
         run: |
-          kubectl apply -f deployment.yaml -f service.yaml 
+          kubectl apply -f api-images-cat/deployment.yaml -f api-images-cat/service.yaml 
