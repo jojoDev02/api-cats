@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2  # Atualizado para a versão 2 do checkout action.
+        uses: actions/checkout@v3
 
       - name: Authenticate with Google Cloud
         uses: google-github-actions/auth@v1
