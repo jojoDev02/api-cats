@@ -33,28 +33,10 @@ jobs:
         uses: google-github-actions/setup-gke@v0.5.0
         with:
           project_id: ${{ secrets.GCP_PROJECT_ID }}
-          service_account_key: ${{ secrets.GCP_SA_KEY }}
-          location: us-central1
+          credentials: ${{ secrets.GCP_SA_KEY }}
           cluster_name: gin-prod
+          location: us-central1
 
       - name: Apply Kubernetes Manifest
         run: |
           kubectl apply -f api-images-cat/deployment.yaml -f api-images-cat/service.yaml
-
-
-      - name: Build and Push Docker Image
-        run: |
-          docker build -t gcr.io/${{ secrets.GCP_PROJECT_ID }}/api-cats:${{ github.sha }} .
-          docker push gcr.io/${{ secrets.GCP_PROJECT_ID }}/api-cats:${{ github.sha }}
-
-      - name: Set up kubectl
-        uses: google-github-actions/setup-gke@v0.5.0
-        with:
-          project_id: ${{ secrets.GCP_PROJECT_ID }}
-          credentials: ${{ secrets.GCP_SA_KEY }}
-          cluster_name: gin-prod
-          location: us-central1
-          
-      - name: Apply Kubernetes Manifest
-        run: |
-          kubectl apply -f api-images-cat/deployment.yaml -f api-images-cat/service.yaml 
