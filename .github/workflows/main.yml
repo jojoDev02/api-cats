@@ -30,8 +30,8 @@ jobs:
 
       - name: Build and Push Docker Image
         run: |
-          docker build -t gcr.io/${{ secrets.GCP_PROJECT_ID }}/api-images-cat/api-cats:${{ github.sha }} .
-          docker push gcr.io/${{ secrets.GCP_PROJECT_ID }}/api-images-cat/api-cats:${{ github.sha }}
+          docker build -t gcr.io/${{ secrets.GCP_PROJECT_ID }}/api-images-cat:${{ github.sha }} .
+          docker push gcr.io/${{ secrets.GCP_PROJECT_ID }}/api-images-cat:${{ github.sha }}
 
       - name: Set up kubectl
         uses: google-github-actions/setup-gcloud@v1  # Reutilizando a ação anterior para configurar o kubectl.
