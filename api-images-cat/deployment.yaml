@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sua-aplicacao
+  name: api-cats
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: sua-aplicacao
+      app: api-cats
   template:
     metadata:
       labels:
-        app: sua-aplicacao
+        app: api-cats
     spec:
       containers:
-      - name: sua-aplicacao
-        image: gcr.io/seu_projeto_gcp/sua_imagem:v1
+      - name: api-cats
+        image: gcr.io/gin-trabalho/api-cats:v1
         ports:
         - containerPort: 5000
