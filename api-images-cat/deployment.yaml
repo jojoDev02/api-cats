@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: api-images-cat
-        image: gcr.io/gin-trabalho/api-cats:v1
+        image: gcr.io/gin-trabalho/api-cats/api-images-cat:v1
         ports:
         - containerPort: 5000
